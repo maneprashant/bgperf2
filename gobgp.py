@@ -30,7 +30,12 @@ class GoBGP(Container):
         cls.dockerfile = '''
 FROM golang:1.16.6
 WORKDIR /root
-RUN git clone git://github.com/osrg/gobgp && cd gobgp && go mod download
+
+RUN apt-get update; apt-get upgrade -y
+RUN apt-get install -y python3 python3-pip sudo vim
+RUN pip3 install matplotlib
+
+RUN git clone https://github.com/osrg/gobgp && cd gobgp && go mod download
 RUN cd gobgp && go install ./cmd/gobgpd
 RUN cd gobgp && go install ./cmd/gobgp
 RUN rm -rf /root/gobgp && cp /go/bin/gobgp /root/gobgp
