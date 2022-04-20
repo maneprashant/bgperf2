@@ -49,21 +49,6 @@ class QuaggaTarget(Quagga, Target):
 
     CONTAINER_NAME = 'bgperf_quagga_target'
     CONFIG_FILE_NAME = 'bgpd.conf'
-#     SHOW_BGP_TEXTFSM_TEMPLATE = '''Value Neighbor (\d+.\d+.\d+.\d+.)
-# Value Spk (\d+)
-# Value AS (\d+)
-# Value MsgRcvd (\d+)
-# Value MsgSent (\d+)
-# Value TblVer (\d+)
-# Value InQ (\d+)
-# Value OutQ (\d+)
-# Value up_down (\d+:\d+:\d+)
-# Value St (\S+)
-
-# Start
-#     ^${Neighbor}\s+${Spk}+\s+${AS}+\s+${MsgRcvd}\s+${MsgSent}+\s+${TblVer}+\s+${InQ}\s+${OutQ}+\s+${up_down}+\s+${St} -> Record
-# 
-# EOF'''
     SHOW_BGP_TEXTFSM_TEMPLATE = '''Value Neighbor (\d+.\d+.\d+.\d+.)
 Value Spk (\d+)
 Value AS (\d+)

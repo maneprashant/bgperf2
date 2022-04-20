@@ -33,7 +33,6 @@ WORKDIR /root
 
 RUN apt-get update; apt-get upgrade -y
 RUN apt-get install -y python3 python3-pip sudo vim
-RUN pip3 install matplotlib
 
 RUN git clone https://github.com/osrg/gobgp && cd gobgp && go mod download
 RUN cd gobgp && go install ./cmd/gobgpd
