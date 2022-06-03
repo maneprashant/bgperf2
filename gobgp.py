@@ -28,11 +28,12 @@ class GoBGP(Container):
     @classmethod
     def build_image(cls, force=False, tag='bgperf/gobgp', checkout='HEAD', nocache=False):
         cls.dockerfile = '''
-FROM golang:1.16.6
+FROM golang:1.18.3
 WORKDIR /root
 
 RUN apt-get update; apt-get upgrade -y
 RUN apt-get install -y python3 python3-pip sudo vim
+RUN pip3 install matplotlib
 
 RUN git clone https://github.com/osrg/gobgp && cd gobgp && go mod download
 RUN cd gobgp && go install ./cmd/gobgpd
